@@ -1,0 +1,61 @@
+<div class="row-fluid">
+    <div class="row-fluid">
+        <div class="span6">
+            <h3>All Contacts</h3>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            &nbsp;
+        </div>
+        <div class="span6">
+            <input class="input pull-right" type="text" ng-model="searchTerm">
+            <small class="pull-right">Search &nbsp;&nbsp;&nbsp;</small>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <table class="table table-bordered table-striped" ng-show="contacts.length > 0">
+            <thead>
+                <tr> 
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="c in contacts">
+                    <td>
+                        {{c.name}}
+                    </td>
+                    <td>
+                        {{c.email}}
+                    </td>
+                    <td>
+                        {{c.phone}}
+                    </td>
+                    <td>
+                        {{c.location}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-show="contacts.length === 0" class="text-error">
+            No contacts found.
+        </div>
+    </div>
+    <div class="row-fluid" ng-show="contacts.length > 0">
+        <div class="row-fluid">
+            <pagination  total-items="totalContacts" page="currentPage" items-per-page="totalCountPerPage" max-size="maxSize" boundary-links="true" rotate="false"></pagination>
+        </div>
+    </div>
+
+</div>
